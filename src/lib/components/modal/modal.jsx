@@ -1,5 +1,6 @@
 import './modal.css'
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Modal = ({ text, closeModal }) => (
   <div className="modal">
@@ -13,5 +14,10 @@ const Modal = ({ text, closeModal }) => (
     </div>
   </div>
 )
+
+Modal.propTypes = {
+  text: PropTypes.string,
+  closeModal: PropTypes.function,
+}
 
 export default Modal
