@@ -1,23 +1,30 @@
 import './modal.css'
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useState } from 'react'
 
-const Modal = ({ text, closeModal }) => (
-  <div className="modal">
-    <div className="modal-header">
-      <button className="modal-header__button" onClick={closeModal}>
-        X
-      </button>
+function Modal({ text, isShow }) {
+  const [show, setIsShow] = useState(isShow)
+  const closeModal = () => {
+    setIsShow(!isShow)
+  }
+  return show ? (
+    <div className="modal">
+      <div className="modal-header">
+        <button className="modal-header__button" onClick={closeModal}>
+          X
+        </button>
+      </div>
+      <div className="modal-text">
+        <h2>{text}</h2>
+      </div>
     </div>
-    <div className="modal-text">
-      <h2>{text}</h2>
-    </div>
-  </div>
-)
+  ) : null
+}
 
 Modal.propTypes = {
   text: PropTypes.string,
-  closeModal: PropTypes.function,
+  isShow: PropTypes.bool,
 }
 
 export default Modal
