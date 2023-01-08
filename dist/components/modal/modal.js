@@ -19,7 +19,16 @@ function Modal(_ref) {
   var closeModal = function closeModal() {
     setIsShow(!isShow);
   };
+  var handleClick = function handleClick(e) {
+    if (e.target !== e.currentTarget) {
+      return;
+    }
+    closeModal();
+  };
   return show ? /*#__PURE__*/_react.default.createElement("div", {
+    className: "modal-container",
+    onClick: handleClick
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "modal"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "modal-header"
@@ -28,7 +37,7 @@ function Modal(_ref) {
     onClick: closeModal
   }, "X")), /*#__PURE__*/_react.default.createElement("div", {
     className: "modal-text"
-  }, /*#__PURE__*/_react.default.createElement("h2", null, text))) : null;
+  }, /*#__PURE__*/_react.default.createElement("h2", null, text)))) : null;
 }
 var _default = Modal;
 exports.default = _default;
