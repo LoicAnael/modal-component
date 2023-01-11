@@ -1,22 +1,15 @@
 import './modal.css'
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useState } from 'react'
 
-function Modal({ text, isShow }) {
-  const [show, setIsShow] = useState(isShow)
-
-  const closeModal = () => {
-    setIsShow(!isShow)
-  }
-
+function Modal({ text, closeModal }) {
   const handleClick = (e) => {
     if (e.target !== e.currentTarget) {
       return
     }
     closeModal()
   }
-  return show ? (
+  return (
     <div className="modal-container" onClick={handleClick}>
       <div className="modal">
         <div className="modal-header">
@@ -29,12 +22,12 @@ function Modal({ text, isShow }) {
         </div>
       </div>
     </div>
-  ) : null
+  )
 }
 
 Modal.propTypes = {
   text: PropTypes.string,
-  isShow: PropTypes.bool,
+  closeModal: PropTypes.func,
 }
 
 export default Modal

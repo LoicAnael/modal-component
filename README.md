@@ -13,7 +13,7 @@ this project represents part of the project of my Openclassrooms training of pro
 ## Utilisation
 
 - import the Modal function of the installed component as follows: `import { Modal } from '@loic-anael/simple-component-modal'`
-- it is important to know that the Modal function takes as parameters two props which are `text` and `isShow` and insert the function in your target component following the example below
-- **{isShow && <Modal text="Your text" isShow={isShow} />}**
+- it is important to know that the Modal function takes as parameters two props which are `text` and `closeModal` and insert the function in your target component following the example below
+- **{isShow && <Modal text="Your text" onclick={closeModal} />}**
 
 # loic_anael
